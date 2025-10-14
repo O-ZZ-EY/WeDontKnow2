@@ -10,6 +10,7 @@ public class patternspawner : MonoBehaviour
     void Start()
     {
         SpawnPattern();
+        //kicks off code to start spawning patterns
     }
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class patternspawner : MonoBehaviour
         {
             SpawnPattern();
             timer = 0;
+            //when even the timer hits 0, a new pattern will be spawned
         }
         timer += Time.deltaTime;
         
@@ -26,9 +28,11 @@ public class patternspawner : MonoBehaviour
 
     private void SpawnPattern()
     {
-        int randPattern = Random.Range(0, patternPrefabs.Length); 
+        int randPattern = Random.Range(0, patternPrefabs.Length);
+        //randomly selects pattern from an array of prefabs 
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
+        //marks the position of where itll spawn
         Instantiate(patternPrefabs[randPattern], spawnPos, Quaternion.identity);
+        //actually spawns/instantiates the random pattern
     }
 }

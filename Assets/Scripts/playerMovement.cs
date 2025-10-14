@@ -8,6 +8,7 @@ public class playerMovement : MonoBehaviour
     public Color MorphQ = Color.magenta;
     public Color MorphW = Color.cyan;
     public Color MorphE = Color.green;
+    //the colors are a placeholder, waiting for sprites
     public GameManagerScript gameManager;
     private bool isDead;
     public GameObject player;
@@ -27,21 +28,25 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             RB.linearVelocity = Vector3.up * jumpForce;
+            //allows the player to move up with gravity applied. The player can only jump
         }
 
         if (Input.GetKeyDown("1"))
         {
             mySprite.color = MorphQ;
+            //switches to SpriteQ
         }
 
         if (Input.GetKeyDown("2"))
         {
             mySprite.color = MorphW;
+            //Switches to SpriteW
         }
 
         if (Input.GetKeyDown("3"))
         {
             mySprite.color = MorphE;
+            //switches to SpriteE
         }
     }
 
@@ -52,21 +57,25 @@ public class playerMovement : MonoBehaviour
             {
                 isDead = true;
                 gameManager.gameOver();
+                //there are colliders tagged with hazard, when touched, end game
             }
             if (mySprite.color != MorphQ && collision.gameObject.CompareTag("magenta") && !isDead)
             {
                 isDead = true;
                 gameManager.gameOver();
+                //if the player sprite collides with magenta object and the player sprite/state isn't magenta (MorphQ) end game
             }
             if (mySprite.color != MorphW && collision.gameObject.CompareTag("cyan") && !isDead)
             {
                 isDead = true;
                 gameManager.gameOver();
+                //if the player sprite collides with cyan object and the player sprite/state isn't cyan (MorphW) end game
             }
             if (mySprite.color != MorphE && collision.gameObject.CompareTag("green") && !isDead)
             {
                 isDead = true;
                 gameManager.gameOver();
+                //if the player sprite collides with green object and the player sprite/state isn't green (MorphE) end game
             }
         }
     

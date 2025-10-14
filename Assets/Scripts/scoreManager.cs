@@ -10,12 +10,13 @@ public class scoreManager : MonoBehaviour
     void Start()
     {
         scoreText.text = "Score:" + score.ToString();
-       
+       //i did something wrong here I'm not sure what.
     }
 
     // Update is called once per frame
     void Update()
     {
         score += pointsPerSecond * Time.deltaTime;
+        //the score is based on how long the player survives for, each second is x points, in this case 13
     }
 }
