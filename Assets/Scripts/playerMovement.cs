@@ -11,9 +11,11 @@ public class playerMovement : MonoBehaviour
     //the colors are a placeholder, waiting for sprites
     public GameManagerScript gameManager;
     private bool isDead;
+    private bool jumpCooldown = false;
     public GameObject player;
     public Rigidbody2D RB;
     public float jumpForce = 0;
+    public LayerMask layerMaskWorld;
 
     public bool canPassQ = false;
 
@@ -21,21 +23,50 @@ public class playerMovement : MonoBehaviour
     {
         RB = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
+        //layerMask = LayerMask.GetMask("Player", "World");
+
+        Ray2D DrawRay = new Ray2D(transform.position, Vector2.down);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RB.linearVelocity = Vector3.up * jumpForce;
+
+
+        RaycastHit2D Detect = Physics2D.Raycast(transform.position, Vector2.down, 100f, layerMaskWorld);
+
+        //float distance = Mathf.Abs(Detect.point.y - transform.position.y);
+
+        //Debug.DrawRay(transform.position, Detect.distance, Color.blue);
+
+     //   if (Input.GetKeyDown(KeyCode.Space)) // This is the original jump, I commented it out to test if the new player jump works
+      //  {
+           // RB.linearVelocity = Vector3.up * jumpForce;
             //allows the player to move up with gravity applied. The player can only jump
+        //}
+
+        if (jumpCooldown == false) 
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                RB.linearVelocity = Vector3.up * jumpForce;
+                jumpCooldown = true;
+                //allows the player to move up with gravity applied. The player can only jump
+            }
         }
+
+        if (Detect) 
+        {
+            jumpCooldown = false;
+            Debug.Log("Jump");
+        }
+
 
         if (Input.GetKeyDown("1"))
         {
             mySprite.color = MorphQ;
             //switches to SpriteQ
         }
+
 
         if (Input.GetKeyDown("2"))
         {

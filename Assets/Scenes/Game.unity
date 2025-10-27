@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 253936648}
   - component: {fileID: 253936647}
   - component: {fileID: 253936651}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,10 @@ MonoBehaviour:
   gameManager: {fileID: 1028488683}
   player: {fileID: 253936646}
   RB: {fileID: 0}
-  jumpForce: 12
+  jumpForce: 15
+  layerMaskWorld:
+    serializedVersion: 2
+    m_Bits: 64
   canPassQ: 0
 --- !u!212 &253936649
 SpriteRenderer:
@@ -685,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d1aca2240ae7f40bc717a93ecdb822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 552238395}
   score: 0
   pointsPerSecond: 13
 --- !u!114 &552238395
@@ -897,7 +900,7 @@ GameObject:
   - component: {fileID: 746224593}
   - component: {fileID: 746224592}
   - component: {fileID: 746224591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: gROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
