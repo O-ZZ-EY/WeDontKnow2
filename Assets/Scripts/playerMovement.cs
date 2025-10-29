@@ -32,7 +32,7 @@ public class playerMovement : MonoBehaviour
     {
 
 
-        RaycastHit2D Detect = Physics2D.Raycast(transform.position, Vector2.down, 1.15f, layerMaskWorld);
+        RaycastHit2D Detect = Physics2D.Raycast(transform.position, Vector2.down, 1.195f, layerMaskWorld);
 
         //float distance = Mathf.Abs(Detect.point.y - transform.position.y);
 
