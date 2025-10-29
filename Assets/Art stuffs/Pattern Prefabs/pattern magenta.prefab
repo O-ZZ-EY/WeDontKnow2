@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5855305792677810580}
   - component: {fileID: 1503429787877585340}
   - component: {fileID: 8350026346428345057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 3 block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7368264429653543196}
   - component: {fileID: 6202392573741849256}
   - component: {fileID: 5719933593063658517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 675068450394317893}
   - component: {fileID: 3526768345281189213}
   - component: {fileID: 2499271815349881829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pink morph
   m_TagString: magenta
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 3594181325823832138}
   - component: {fileID: 5221664475472818133}
   - component: {fileID: 9028503874935721907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2block
   m_TagString: Untagged
   m_Icon: {fileID: 0}

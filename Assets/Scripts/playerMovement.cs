@@ -32,11 +32,11 @@ public class playerMovement : MonoBehaviour
     {
 
 
-        RaycastHit2D Detect = Physics2D.Raycast(transform.position, Vector2.down, 100f, layerMaskWorld);
+        RaycastHit2D Detect = Physics2D.Raycast(transform.position, Vector2.down, 1.15f, layerMaskWorld);
 
         //float distance = Mathf.Abs(Detect.point.y - transform.position.y);
 
-        //Debug.DrawRay(transform.position, Detect.distance, Color.blue);
+        Debug.DrawRay(transform.position, Vector2.down, Color.blue);
 
      //   if (Input.GetKeyDown(KeyCode.Space)) // This is the original jump, I commented it out to test if the new player jump works
       //  {
@@ -44,20 +44,18 @@ public class playerMovement : MonoBehaviour
             //allows the player to move up with gravity applied. The player can only jump
         //}
 
-        if (jumpCooldown == false) 
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
+
+            if (Input.GetKeyDown(KeyCode.Space) && jumpCooldown == false)
             {
                 RB.linearVelocity = Vector3.up * jumpForce;
                 jumpCooldown = true;
                 //allows the player to move up with gravity applied. The player can only jump
             }
-        }
 
         if (Detect) 
         {
             jumpCooldown = false;
-            Debug.Log("Jump");
+            Debug.Log("Reset by: " + Detect.collider.gameObject.name);
         }
 
 
