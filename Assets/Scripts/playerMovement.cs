@@ -10,7 +10,7 @@ public class playerMovement : MonoBehaviour
     public Color MorphE = Color.green;
     //the colors are a placeholder, waiting for sprites
     public GameManagerScript gameManager;
-    private bool isDead;
+    public bool isDead;
     private bool jumpCooldown = false;
     public GameObject player;
     public Rigidbody2D RB;
