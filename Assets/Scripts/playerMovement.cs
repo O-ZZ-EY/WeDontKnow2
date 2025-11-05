@@ -13,6 +13,7 @@ public class playerMovement : MonoBehaviour
     public bool isDead;
     private bool jumpCooldown = false;
     public GameObject player;
+    public float playerStartPos;
     public Rigidbody2D RB;
     public float jumpForce = 0;
     public LayerMask layerMaskWorld;
@@ -24,6 +25,8 @@ public class playerMovement : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         //layerMask = LayerMask.GetMask("Player", "World");
+
+        playerStartPos = player.gameObject.transform.position.x;
 
         Ray2D DrawRay = new Ray2D(transform.position, Vector2.down);
     }
@@ -76,6 +79,12 @@ public class playerMovement : MonoBehaviour
         {
             mySprite.color = MorphE;
             //switches to SpriteE
+        }
+
+        if (player.gameObject.transform.localPosition.x != playerStartPos) // Hey this checks if the player got moved by an object (X axis) and kills them
+        {
+            isDead = true;
+            gameManager.gameOver();
         }
     }
 
