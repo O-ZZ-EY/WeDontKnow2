@@ -27,4 +27,5 @@ public class GameManagerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //starts the game over again
     }
+
 }
