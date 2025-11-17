@@ -8,8 +8,9 @@ using UnityEngine.SceneManagement;
 public class patternspawner : MonoBehaviour
 {
     private float maxTime = 8f;
-    public GameObject[] patternPrefabs;
+    public GameObject[] patternPrefabs; // Grabs the prefabs from the inspector
     public GameObject[] patternPrefabsHard;
+    public GameObject MountainBackground;
 
     private float timer;
 
@@ -27,8 +28,14 @@ public class patternspawner : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("Difficulty") == 0) { SpawnPattern(); timer = 0; }
             else if (PlayerPrefs.GetInt("Difficulty") == 1) { SpawnPatternHard(); timer = 0; }
+
             //when even the timer hits 0, a new pattern will be spawned
+
+            Vector3 spawnMountainPos = new Vector3(transform.position.x, 0.9955f, 1f);
+
+            Instantiate(MountainBackground, spawnMountainPos, Quaternion.identity);
         }
+
         timer += Time.deltaTime;
         
     }
