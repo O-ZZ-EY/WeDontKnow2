@@ -35,17 +35,10 @@ public class playerMovement : MonoBehaviour
     {
 
 
-        RaycastHit2D Detect = Physics2D.Raycast(transform.position, Vector2.down, 1.2f, layerMaskWorld);
+        RaycastHit2D Detect = Physics2D.Raycast(transform.position, Vector2.down, 1.2f, layerMaskWorld); // Creates a ray so the player as a separate hitbox from the box colliders. This is used for jump detection
 
-        //float distance = Mathf.Abs(Detect.point.y - transform.position.y);
+        Debug.DrawRay(transform.position, Vector2.down, Color.blue); // Draws a ray for the scene, this doesn't display properly but its there if needed
 
-        Debug.DrawRay(transform.position, Vector2.down, Color.blue);
-
-     //   if (Input.GetKeyDown(KeyCode.Space)) // This is the original jump, I commented it out to test if the new player jump works
-      //  {
-           // RB.linearVelocity = Vector3.up * jumpForce;
-            //allows the player to move up with gravity applied. The player can only jump
-        //}
 
 
             if (Input.GetKeyDown(KeyCode.Space) && jumpCooldown == false)
@@ -55,7 +48,7 @@ public class playerMovement : MonoBehaviour
                 //allows the player to move up with gravity applied. The player can only jump
             }
 
-        if (Detect) 
+        if (Detect)  // If the ray is touching "layerMaskWorld" which is the ground, then it resets the jump back to normal. It's a bit buggy though fair warning.
         {
             jumpCooldown = false;
             Debug.Log("Reset by: " + Detect.collider.gameObject.name);
@@ -118,6 +111,10 @@ public class playerMovement : MonoBehaviour
         }
     
 }
-    
-    
 
+
+//   if (Input.GetKeyDown(KeyCode.Space)) // This is the original jump, I commented it out to test if the new player jump works (it does but leaving it here if you want to see. It was in update).
+//  {
+// RB.linearVelocity = Vector3.up * jumpForce;
+//allows the player to move up with gravity applied. The player can only jump
+//}
