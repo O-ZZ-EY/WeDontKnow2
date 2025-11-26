@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      parallax_background_mountain_cut_0: 7124348136422962701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

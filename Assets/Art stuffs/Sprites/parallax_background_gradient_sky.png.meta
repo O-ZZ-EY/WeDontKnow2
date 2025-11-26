@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      parallax_background_gradient_sky_0: 6540702144270396681
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
